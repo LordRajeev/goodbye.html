@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goodbye Message</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        .slideshow {
+            width: 80%;
+            max-width: 500px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+        .slides {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+        .slides img {
+            width: 100%;
+            border-radius: 20px;
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .message {
+            font-size: 2rem;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px 40px;
+            border-radius: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 2s ease-out, transform 2s ease-out;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .message.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background: #ff6b6b;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        button:hover {
+            background: #ff4f4f;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="slideshow">
+        <div class="slides" id="slides">
+            <img src="https://i0.wp.com/iskconwhitefield.org/wp-content/uploads/2024/09/radha-rani-queen-of-devotion.jpg?resize=1080%2C675&ssl=1" alt="Slide 1">
+            <img src="https://hips.hearstapps.com/hmg-prod/images/gettyimages-1167560383-612x612-1668795431.jpg?crop=1.00xw:0.834xh;0,0.152xh&resize=980:*" alt="Slide 2">
+            <img src="https://i0.wp.com/iskconwhitefield.org/wp-content/uploads/2024/09/radha-rani-queen-of-devotion.jpg?resize=1080%2C675&ssl=1" alt="Slide 3">
+        </div>
+    </div>
+    <div class="content">
+        <button onclick="revealMessage()">Click to Reveal Message</button>
+        <div class="message" id="goodbyeMessage">Goodbye! Wishing you all the best ahead. Take care! Remember, every ending is a new beginning. Stay positive, stay strong, and keep chasing your dreams. You’ve got this! and if you ever feel like it you can always contact me and you will be always my Favourite Person on the planet. We'll stay in touch even after your posting and Promise me you will never forget me.... </div>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        const slides = document.getElementById('slides');
+        const totalSlides = slides.children.length;
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        setInterval(nextSlide, 3000);
+
+        function revealMessage() {
+            document.getElementById('goodbyeMessage').classList.add('show');
+        }
+    </script>
+</body>
+</html>
